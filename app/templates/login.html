@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row text-center">
+    <div class="col-md-4">
+        <!-- Empty column -->
+    </div>
+    <div class="col-md-4">
+        <div class="card-deck">
+            <div class="card">
+                <div class="card-block">
+                    <h4 class="card-title">Welcome back</h4>
+                    <p>Sign in to continue to Nova</p>
+
+                    <p class="card-text">
+                        <div class="register_form">
+                            <form action="" method="post" novalidate>
+                                {{ form.hidden_tag() }}
+                                <p>
+                                    {{ form.email.label }} <br>
+                                    {{ form.email(size=32) }} <br>
+                                    {% for error in form.email.errors %}
+                                    <span style="color: red;">
+                                        {{ error }}
+                                    </span>
+                                    {% endfor %}
+                                </p>
+                                <p>
+                                    {{ form.password.label }} <br>
+                                    {{ form.password(size=32) }} <br>
+                                    {% for error in form.password.errors %}
+                                    <span style="color: red;">
+                                        {{ error }}
+                                    </span>
+                                    {% endfor %}
+                                </p>
+                                <p>
+                                    {{ form.remember_me() }} {{ form.remember_me.label }}
+                                </p>
+                                <p>
+                                    <a href="{{  url_for('forgot_password')  }}">Forgot password?</a>
+                                </p>
+                                <p>
+                                    {{ form.submit() }}
+                                </p>
+                            </form>
+                            <p>
+                                Don't have an account? <a href="{{  url_for('register')  }}">Create one for free</a>
+                            </p>
+                        </div>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <!-- Empty column -->
+    </div>
+
+</div>
+{% endblock %}
