@@ -1,0 +1,141 @@
+/* === General Styles === */
+section {
+    padding-left: 60px;
+    padding-right: 60p;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: block;
+}
+body {
+    font-family: 'DM Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+h2 {
+    font-size: 48px;
+}
+h3 {
+    font-size: 35px;
+}
+p {
+    font-size: 15px;
+}
+button {
+    border-radius: 40px;
+}
+/* === End of General Styles === */
+
+/* === Navbar === */
+
+/* === End Navbar */
+
+/* === Footer === */
+
+/* === End Footer === */
+
+
+
+/* Index page */
+.blue_band {
+    background-color: #0e1c2b;
+    width: 100%;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    padding: 60px 0;
+    color: #ffffff;
+}
+.blue_band .voice {
+    color: gold;
+    font-style: italic;
+}
+.blue_band h3 {
+    font-size: 25px;
+    color: #ffffff;
+}
+.blue_band h3 .data {
+    font-size: 14px;
+}
+.blue_band .first_paragraph {
+    font-size: 18px;
+    color: gold;
+}
+.blue_band .blue_band_header {
+    font-weight: 1000;
+}
+/* ── Mock Post Card ───────────────────────────────── */
+.hero-card {
+    background-color: #1a2d3d;
+    border-radius: 16px;
+    padding: 24px;
+    width: 320px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+}
+
+.hero-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #243b50;
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 16px;
+}
+
+.hero-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #c9a84c;
+    flex-shrink: 0;
+}
+
+.hero-card-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+}
+
+.line {
+    height: 8px;
+    border-radius: 4px;
+    background-color: #3a5068;
+}
+
+.line-full   { width: 100%; }
+.line-medium { width: 70%; }
+.line-short  { width: 55%; }
+.line-xshort { width: 35%; }
+
+.hero-card-body {
+    padding: 4px 0 16px;
+}
+
+.hero-card-footer {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: #8a9bb0;
+    font-size: 0.85rem;
+}
+
+.hero-card-time {
+    margin-left: auto;
+    color: #c9a84c;
+    font-size: 0.8rem;
+}
+/* === End mock card === */
+.white_band {
+    background-color: #ffffff;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+}
+.beige_band {
+    background-color: #f0ebe0;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+}
+/* End index page */

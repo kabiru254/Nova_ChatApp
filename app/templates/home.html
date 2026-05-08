@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+
+        <!-- LEFT: Post Form + Feed -->
+        <div class="col-md-8">
+
+            <!-- Post Form -->
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-auto p-3">
+                        <img src="{{ current_user.avatar(36) }}"
+                            class="rounded-circle flex-shrink-0"
+                            width="36" height="36"
+                            alt="{{ current_user.username }}">
+                    </div>
+                    <div class="col">
+                        <div class="card-body">
+                            <form action="" method="post" novalidate>
+                                {{ form.hidden_tag() }}
+                                <p>
+                                    {{ form.body.label }} <br>
+                                    {{ form.body(size=32, id="postBody", maxlength="500") }} <br>
+                                    {% for error in form.body.errors %}
+                                    <span style="color: red;">{{ error }}</span>
+                                    {% endfor %}
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-body-secondary" id="charCount">0/500</small>
+                                    {{ form.submit(class="btn btn-primary btn-sm") }}
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Post Form -->
+
+            <!-- View Posts -->
+            {% for post in posts %}
+                {% if post %}
+                    <div class="card mb-3">
+                        <div class="row g-0">
+
+                            <!-- Left: Avatar + Post Info -->
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <div class="d-flex gap-3">
+                                        <img src="{{ post.author.avatar(36) }}"
+                                            class="rounded-circle flex-shrink-0"
+                                            width="36" height="36"
+                                            alt="{{ post.author.username }}">
+                                        <div>
+                                            <p class="mb-0 fw-semibold">
+                                                {{ post.author.first_name }} {{ post.author.last_name }}
+                                            </p>
+                                            <p class="mb-1 text-muted small">@{{ post.author.username }}</p>
+                                            <p class="mb-0">{{ post.body }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Right: Timestamp + Delete -->
+                            <div class="col-md-4">
+                                <div class="card-body d-flex flex-column align-items-end justify-content-between h-100">
+                                    <small class="text-muted">
+                                        <i class="bi bi-clock me-1"></i>
+                                        {{ post.timestamp.strftime('%B %d, %Y') }}
+                                    </small>
+                                    {% if post.author == current_user %}
+                                        <form action="{{ url_for('delete_post', post_id=post.id) }}" method="post">
+                                            {{ form.hidden_tag() }}
+                                            <button type="submit" class="btn btn-sm btn-outline-danger mt-2"
+                                                onclick="return confirm('Delete this post?')">
+                                                <i class="bi bi-trash me-1"></i>Delete
+                                            </button>
+                                        </form>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            <!-- End View Posts -->
+
+        </div>
+        <!-- END LEFT -->
+
+        <!-- RIGHT: Profile Cards -->
+        <div class="col-md-4 d-flex flex-column gap-3">
+
+            <!-- Profile Card -->
+            <div class="card">
+                <div class="card-body text-center">
+                    <img src="{{ current_user.avatar(80) }}"
+                        class="rounded-circle mb-3"
+                        width="80" height="80"
+                        alt="{{ current_user.username }}">
+                    <h5 class="card-title mb-0">
+                        {{ current_user.first_name }} {{ current_user.last_name }}
+                    </h5>
+                    <p class="text-muted small mb-3">@{{ current_user.username }}</p>
+                    <a href="{{ url_for('profile', username=current_user.username) }}"
+                        class="btn btn-outline-secondary btn-sm w-100">
+                        <i class="bi bi-person me-2"></i>View Profile
+                    </a>
+                </div>
+            </div>
+            <!-- End Profile Card -->
+
+            <!-- Quick Links Card -->
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Quick Links</h5>
+                    <div class="d-flex flex-column gap-2 mt-3">
+                        <a href="{{ url_for('edit_profile') }}" class="btn btn-outline-primary btn-sm text-start">
+                            <i class="bi bi-pencil-square me-2"></i>Edit Profile
+                        </a>
+                        <a href="{{ url_for('logout') }}" class="btn btn-outline-danger btn-sm text-start">
+                            <i class="bi bi-box-arrow-right me-2"></i>Sign Out
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- End Quick Links Card -->
+
+        </div>
+        <!-- END RIGHT -->
+
+    </div>
+</div>
+
+<script>
+    const postBody = document.getElementById('postBody');
+    const charCount = document.getElementById('charCount');
+
+    postBody.addEventListener('input', function () {
+        const current = this.value.length;
+        const max = 500;
+        charCount.textContent = `${current}/${max}`;
+        charCount.classList.toggle('text-danger', current >= max);
+        charCount.classList.toggle('text-body-secondary', current < max);
+    });
+</script>
+
+
+{% endblock %}

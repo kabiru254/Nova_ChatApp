@@ -1,23 +1,25 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="row text-center">
-    <div class="col-md-4">
-        <!-- Empty column -->
-    </div>
-    <div class="col-md-4">
-        <div class="card-deck">
+<div class="container py-5">
+    <div class="row text-center">
+        <div class="col-lg-7">
+            <a href="{{ url_for('profile', username=current_user.username) }}">← Back</a>
+            <h2>Edit Profile</h2>
             <div class="card">
                 <div class="card-block">
-                    <h4 class="card-title">Create your account.</h4>
-                    <p>Join Nova - free,forever.</p>
+                    <div class="card-body">
+                        <!-- Profile picture -->
+                        <img src="{{ current_user.avatar(80) }}"
+                        class="rounded-circle mb-3"
+                        width="80" height="80"
+                        alt="{{ current_user.username }}">
+                        <!-- End profile picture -->
 
-                    <p class="card-text">
-                        <div class="register_form">
-                            <form action="" method="post" novalidate>
-                                {{ form.hidden_tag() }}
-
-                                <!-- First Name & Last Name side by side -->
+                        <!-- Profile details -->
+                        <form action="" method="post" novalidate>
+                            {{ form.hidden_tag() }}
+                            <!-- First Name & Last Name side by side -->
                                 <div class="row">
                                     <div class="col-sm-6 mb-3">
                                         <p>
@@ -38,7 +40,6 @@
                                         </p>
                                     </div>
                                 </div>
-
                                 <p>
                                     {{ form.username.label }} <br>
                                     {{ form.username(size=32) }} <br>
@@ -47,41 +48,26 @@
                                     {% endfor %}
                                 </p>
                                 <p>
-                                    {{ form.email.label }} <br>
-                                    {{ form.email(size=32) }} <br>
-                                    {% for error in form.email.errors %}
-                                    <span style="color: red;">{{ error }}</span>
-                                    {% endfor %}
+                                    {{ form.bio.label }} <br>
+                                    {{ form.bio(cols=50, rows=4) }} <br>
                                 </p>
                                 <p>
-                                    {{ form.password.label }} <br>
-                                    {{ form.password(size=32) }} <br>
-                                    {% for error in form.password.errors %}
-                                    <span style="color: red;">{{ error }}</span>
-                                    {% endfor %}
+                                    {{ form.location.label }} <br>
+                                    {{ form.location(cols=50, rows=4) }} <br>
                                 </p>
                                 <p>
-                                    {{ form.confirm_password.label }} <br>
-                                    {{ form.confirm_password(size=32) }} <br>
-                                    {% for error in form.confirm_password.errors %}
-                                    <span style="color: red;">{{ error }}</span>
-                                    {% endfor %}
+                                    {{ form.website.label }} <br>
+                                    {{ form.website(cols=50, rows=4) }} <br>
                                 </p>
                                 <p>
                                     {{ form.submit() }}
                                 </p>
-                            </form>
-                            <p>
-                                Already have an account? <a href="{{  url_for('login')  }}">Sign In</a>
-                            </p>
-                        </div>
-                    </p>
+                        </form>
+                        <!-- End profile details -->
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-md-4">
-        <!-- Empty column -->
     </div>
 </div>
 {% endblock %}

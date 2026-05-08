@@ -4,9 +4,13 @@ from wtforms.validators import DataRequired, Length, EqualTo , Email
 
 
 class EditProfileForm(FlaskForm):
+    first_name = StringField('First Name', validators=[DataRequired(), Length(1, 64)])
+    last_name = StringField('Last Name', validators=[DataRequired(), Length(1, 64)])
     username = StringField('Username', validators=[DataRequired()])
-    about_me = TextAreaField('About me', validators=[Length(min=0, max=140)])
-    submit = SubmitField('Edit Profile')
+    bio = TextAreaField('Bio', validators=[Length(min=0, max=140)])
+    location = TextAreaField('Location', validators=[Length(min=0, max=140)])
+    website = TextAreaField('Website', validators=[Length(min=0, max=140)])
+    submit = SubmitField('Save Changes')
 
 
 class RegisterForm(FlaskForm):

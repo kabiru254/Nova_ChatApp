@@ -2,7 +2,7 @@ from app import app, db
 from app.models import User, Post
 from datetime import datetime
 from flask_login import login_user, logout_user, login_required, current_user
-from flask import render_template, flash, redirect, url_for, request
+from flask import render_template, flash, redirect, url_for, request, abort
 from app.forms import RegisterForm, LoginForm, EditProfileForm, PostForm, ForgotPasswordForm
 
 
@@ -38,13 +38,13 @@ def edit_profile():
     form = EditProfileForm()
     if form.validate_on_submit():
         current_user.username = form.username.data
-        current_user.about_me = form.about_me.data
+        current_user.bio = form.bio.data
         db.session.commit()
         flash('Your changes have been saved.')
         return redirect(url_for('profile', username=current_user.username))
     elif request.method == 'GET':
         form.username.data = current_user.username
-        form.about_me.data = current_user.about_me
+        form.bio.data = current_user.bio
     return render_template(
         'edit_profile.html',
         title = 'Edit Profile',
@@ -54,7 +54,7 @@ def edit_profile():
 @app.route('/<username>/profile')
 @login_required
 def profile(username):
-    """About Me URL"""
+    """Profile URL"""
     user= User.query.filter_by(username=username).first_or_404()
     posts = current_user.posts.all()
     return render_template(
@@ -118,4 +118,18 @@ def forgot_password():
         flash(f'Your email has been sent successfully!')
         return redirect(url_for('index'))
     return render_template('forgot_password.html', title='Forgot Password Page', form=form)
+
+@app.route('/delete_post/<int:post_id>', methods=['GET', 'POST'])
+@login_required
+def delete_post(post_id):
+    post = Post.query.get_or_404(post_id)
+
+    # Ensure only the author can delete their post
+    if post.author != current_user:
+        abort(403)
+
+    db.session.delete(post)
+    db.session.commit()
+    flash('Post deleted.', 'success')
+    return redirect(url_for('home'))
 

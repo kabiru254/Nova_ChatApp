@@ -2,34 +2,52 @@
 
 {% block content %}
 <!-- Start Blue Band -->
- <section class="blue_band">
-<div class="row text-center">
-    <div class="col-md-4">
-        <!-- Empyy column -->
-    </div>
-    <div class="col-md-4">
-        <p>✦ Your space to think out loud</p>
-        <h2>Where ideas <br> find their voice.</h2>
-        <p>
-            Nova is a clean, distraction-free platform for sharing <br>
-            thoughts, sparking conversations, and connecting with <br>
-            people who think deeply.
-        </p>
-        <div class="d-grid gap-2 d-md-block">
-            <button class="btn btn-primary" type="button">Start for free</button>
-            <button class="btn btn-primary" type="button">Sign In</button>
+<section class="blue_band">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <p class="first_paragraph">✦ Your space to think out loud</p>
+                <h2 class="blue_band_header">Where ideas <br> find their <span class="voice">voice.</span></h2>
+                <p>
+                    Nova is a clean, distraction-free platform for sharing <br>
+                    thoughts, sparking conversations, and connecting with <br>
+                    people who think deeply.
+                </p>
+                <div class="d-grid gap-2 d-md-block">
+                    <button class="btn btn-warning m-2 rounded-4 p-2" type="button">Start for free</button>
+                    <button class="btn btn-outline-secondary m-2 rounded-4 p-2" type="button">Sign In</button>
+                </div>
+                <div class="d-flex gap-4 mt-4">
+                    <h3>10k+ <br> <small class="data">Members</small></h3>
+                    <h3>50k+ <br> <small class="data">Posts</small></h3>
+                    <h3>100% <br> <small class="data">AD-Free</small></h3>
+                </div>
+            </div>
+            <!-- Insert image -->
+            <div class="col-md-6 d-flex justify-content-center align-items-center">
+                <div class="hero-card">
+                    <div class="hero-card-header">
+                        <div class="hero-avatar"></div>
+                        <div class="hero-card-lines">
+                            <div class="line line-short"></div>
+                            <div class="line line-xshort"></div>
+                        </div>
+                    </div>
+                    <div class="hero-card-body">
+                        <div class="line line-full"></div>
+                        <div class="line line-full mt-2"></div>
+                        <div class="line line-medium mt-2"></div>
+                    </div>
+                    <div class="hero-card-footer">
+                        <span><i class="bi bi-heart me-1"></i>24</span>
+                        <span><i class="bi bi-chat me-1"></i>8</span>
+                        <span class="hero-card-time">Just now</span>
+                    </div>
+                </div>
+            </div>
+            <!-- End image -->
         </div>
-        <h3>10k+ <br> Members</h3>
-        <h3>50k+ <br> Posts</h3>
-        <h3> 100% <br> AD-Free</h3>
     </div>
-    <div class="col-md-4">
-        <!-- Insert Image -->
-    </div>
-    <div class="col-md-4">
-        <!-- Empty column -->
-    </div>
-</div>
 </section>
 
 <!-- Start White band -->
@@ -67,3 +85,4 @@
         </div>
     </div>
 </section>
+{% endblock %}
