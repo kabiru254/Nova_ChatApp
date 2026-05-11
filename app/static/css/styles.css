@@ -1,36 +1,199 @@
 /* === General Styles === */
-section {
+section, footer {
     padding-left: 60px;
     padding-right: 60p;
     padding-top: 30px;
     padding-bottom: 30px;
     display: block;
 }
+
+/* Add this new rule */
+main {
+    flex: 1;
+}
+
 body {
     font-family: 'DM Sans', sans-serif;
     margin: 0;
     padding: 0;
+
+    /* Sticky footer */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
+
 h2 {
     font-size: 48px;
 }
+
 h3 {
     font-size: 35px;
 }
+
 p {
     font-size: 15px;
 }
+
 button {
     border-radius: 40px;
 }
+
 /* === End of General Styles === */
 
 /* === Navbar === */
+#navbar {
+    background-color: #0e1c2b;
+}
 
+#navbar .navbar-brand {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+#navbar .nova_dot {
+    color: #c9a84c;
+}
+
+#navbar .navbar-brand:hover {
+    color: #ffffff;
+}
+
+#navbar .nav-link {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.9rem;
+}
+
+#navbar .nav-link:hover {
+    color: #ffffff;
+}
+
+#navbar .navbar-signin {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.9rem;
+}
+
+/* Get Started button styling */
+.btn-outline-getstarted {
+    color: #c9a84c;
+    border: 1.5px solid #c9a84c;
+    border-radius: 50px;
+    padding: 6px 18px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-outline-getstarted:hover {
+    background-color: #c9a84c;
+    color: #0e1c2b;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+    background-color: #0e1c2b;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dropdown-item {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.9rem;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.06);
+    color: #ffffff;
+}
+
+.dropdown-divider {
+    border-color: rgba(255, 255, 255, 0.08);
+}
 /* === End Navbar */
 
 /* === Footer === */
+.footer {
+    background-color: #0e1c2b;
+    color: #ffffff;
+}
 
+.footer-brand {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.footer-dot {
+    color: #c9a84c;
+}
+
+.footer-tagline {
+    color: #8a9bb0;
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+.footer-heading {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+/* Remove bullet points */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.6rem;
+}
+
+.footer-links a {
+    color: #8a9bb0;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+}
+
+/* Social media icons */
+.footer-icons {
+    display: flex;
+    gap: 16px;
+}
+
+.footer-icon {
+    color: #ffffff !important;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-icon:hover {
+    color: #c9a84c !important;
+}
+
+/* Divider */
+.footer-divider {
+    border-color: rgba(255, 255, 255, 0.08);
+    margin: 0;
+}
+
+/* Bottom small text */
+.footer-small {
+    color: #8a9bb0;
+    font-size: 0.8rem;
+}
 /* === End Footer === */
 
 
@@ -46,7 +209,7 @@ button {
     color: #ffffff;
 }
 .blue_band .voice {
-    color: gold;
+    color: #c9a84c;
     font-style: italic;
 }
 .blue_band h3 {
@@ -58,7 +221,7 @@ button {
 }
 .blue_band .first_paragraph {
     font-size: 18px;
-    color: gold;
+    color: #c9a84c;
 }
 .blue_band .blue_band_header {
     font-weight: 1000;
