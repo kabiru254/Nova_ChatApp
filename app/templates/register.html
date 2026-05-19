@@ -1,161 +1,415 @@
 {% extends 'base.html' %}
+{% block title %}Create Account{% endblock %}
 
 {% block content %}
+
+<!--
+  ╔══════════════════════════════════════════════════════════════════════╗
+  ║  REGISTER PAGE — register.html                                       ║
+  ║                                                                      ║
+  ║  Layout strategy                                                     ║
+  ║  ───────────────                                                     ║
+  ║  Vertical + horizontal centering is handled entirely by the          ║
+  ║  <section> element via CSS (min-height + flexbox).                   ║
+  ║                                                                      ║
+  ║  The old approach put min-vh-100 + align-items-center on the         ║
+  ║  inner .row, but the parent <section> had its own padding from the   ║
+  ║  global "section" rule, which offset the centering and made the      ║
+  ║  page scroll. Owning centering at the section level fixes this.      ║
+  ╚══════════════════════════════════════════════════════════════════════╝
+-->
+
 <section class="register">
-<div class="row justify-content-center align-items-center min-vh-100">
-    <div class="col-md-4">
-        <div class="card-deck">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Create your account</h4>
-                    <p> <span class="join">Join Nova - free,forever.</span></p>
+  <!--
+    .container
+    ───────────
+    Standard Bootstrap container — provides responsive horizontal
+    padding and caps the content width at each breakpoint.
+    Do NOT add extra padding here; the section already handles
+    top/bottom breathing room.
+  -->
+  <div class="container">
+
+    <!--
+      .row.justify-content-center
+      ────────────────────────────
+      Bootstrap grid row. justify-content-center horizontally centres
+      the single column child. No min-vh-100 or align-items here —
+      that responsibility has moved up to <section class="register">.
+    -->
+    <div class="row justify-content-center">
+
+      <!--
+        Column sizing
+        ─────────────
+        col-md-8  → on medium screens  (≥768px)  take 8/12 of the row
+        col-lg-6  → on large screens   (≥992px)  take 6/12
+        col-xl-5  → on xl screens      (≥1200px) take 5/12
+
+        This progressive narrowing keeps the card from becoming too
+        wide on larger displays — matching the proportions of the
+        doc-1 auth card.
+      -->
+      <div class="col-md-8 col-lg-6 col-xl-5">
+
+        <!--
+          .card.register-card
+          ────────────────────
+          Bootstrap card provides the white surface.
+          .register-card adds border-radius, shadow, and overflow:hidden
+          so the rounded corners clip the coloured header correctly.
+        -->
+        <div class="card register-card">
+
+
+          <!-- ═══════════════════════════════════════════════════════
+               CARD HEADER
+               Dark gradient panel at the top of the card.
+               Contains the page title and subtitle only —
+               no form elements live here.
+          ═══════════════════════════════════════════════════════ -->
+          <div class="card-header register-card-header">
+            <!--
+              Heading: uses Playfair Display (set in CSS).
+              font-size is reduced from the original 1.9rem → 1.6rem
+              so it doesn't dominate the card on smaller viewports.
+            -->
+            <h4 class="card-title">Create your account</h4>
+
+            <!--
+              Subtitle: .join gives it the muted white colour.
+              mb-0 removes Bootstrap's default paragraph bottom margin
+              so the header doesn't grow taller than needed.
+            -->
+            <p class="join mb-0">Join Nova — free, forever.</p>
+          </div>
+          <!-- END card header -->
+
+
+          <!-- ═══════════════════════════════════════════════════════
+               CARD BODY
+               White panel that contains the entire form.
+               .register-card-body controls padding (1.75rem all round)
+               which is tighter than Bootstrap's default 1.25rem sides /
+               no top — the tighter padding reduces overall card height.
+          ═══════════════════════════════════════════════════════ -->
+          <div class="card-body register-card-body">
+            <div class="register_form">
+
+              <!--
+                FORM
+                ─────
+                action=""        → submits to the current URL (Flask handles it)
+                method="post"    → POST request, required for WTForms
+                novalidate       → disables the browser's built-in HTML5
+                                   validation so Flask-WTF shows our custom
+                                   error messages instead
+              -->
+              <form action="" method="post" novalidate>
+
+                <!--
+                  CSRF token
+                  ──────────
+                  Flask-WTF requires this hidden field on every form.
+                  form.hidden_tag() renders it automatically.
+                  Without it, every POST will return a 400 Bad Request.
+                -->
+                {{ form.hidden_tag() }}
+
+
+                <!-- ── FIRST NAME & LAST NAME (side-by-side) ─────── -->
+                <!--
+                  .row wraps both name columns so they sit side by side
+                  on screens ≥576px (col-sm-*) and stack vertically below.
+                -->
+                <div class="row">
+
+                  <!-- First Name -->
+                  <div class="col-sm-6 mb-3">
+                    <!--
+                      form.first_name.label() renders a <label> element.
+                      class='register-label' applies our scoped label style
+                      (small, uppercase, muted) without touching labels
+                      on other pages.
+                    -->
+                    {{ form.first_name.label(class='register-label') }}
+
+                    <!--
+                      form.first_name() renders the <input> element.
+
+                      class breakdown:
+                        form-control      → Bootstrap input base styles
+                        register-input    → our size/border/focus overrides
+                        is-invalid        → only added when there are errors;
+                                           shows red border + makes Bootstrap
+                                           display .invalid-feedback blocks
+
+                      placeholder        → ghost text shown when field is empty
+                    -->
+                    {{ form.first_name(
+                        class='form-control register-input' + (' is-invalid' if form.first_name.errors else ''),
+                        placeholder='Jane'
+                    ) }}
+
+                    <!--
+                      Error messages: loop renders one <span> per error.
+                      field-error class styles them red, small, block-level.
+                      Placed outside the input wrapper so they sit below the field.
+                    -->
+                    {% for error in form.first_name.errors %}
+                      <span class="field-error">{{ error }}</span>
+                    {% endfor %}
+                  </div>
+                  <!-- END First Name -->
+
+                  <!-- Last Name — mirrors First Name exactly -->
+                  <div class="col-sm-6 mb-3">
+                    {{ form.last_name.label(class='register-label') }}
+                    {{ form.last_name(
+                        class='form-control register-input' + (' is-invalid' if form.last_name.errors else ''),
+                        placeholder='Doe'
+                    ) }}
+                    {% for error in form.last_name.errors %}
+                      <span class="field-error">{{ error }}</span>
+                    {% endfor %}
+                  </div>
+                  <!-- END Last Name -->
+
+                </div>
+                <!-- END name row -->
+
+
+                <!-- ── USERNAME ──────────────────────────────────── -->
+                <!--
+                  mb-3: Bootstrap margin-bottom utility (1rem).
+                  This is the consistent vertical gap between all
+                  single-field rows.
+                -->
+                <div class="mb-3">
+                  {{ form.username.label(class='register-label') }}
+                  {{ form.username(
+                      class='form-control register-input' + (' is-invalid' if form.username.errors else ''),
+                      placeholder='janedoe'
+                  ) }}
+                  {% for error in form.username.errors %}
+                    <span class="field-error">{{ error }}</span>
+                  {% endfor %}
                 </div>
 
-                    <div class="card-body">
-                        <p class="card-text">
-                            <div class="register_form">
-                                <form action="" method="post" novalidate>
-                                    {{ form.hidden_tag() }}
 
-                                    <!-- First Name & Last Name side by side -->
-                                    <div class="row">
-                                        <!-- First name -->
-                                        <div class="col-sm-6 mb-3">
-                                            <p class="firstname">
-                                                {{ form.first_name.label }} <br>
-                                                <div class="position-relative">
-                                                    {{ form.first_name(size=32, class="form-control") }} <br>
-                                                    {% if form.username.errors %}
-                                                    <span class="input-error-icon">
-                                                        <i class="bi bi-exclamation-circle-fill"></i>
-                                                    </span>
-                                                    {% endif %}
-                                                </div>
-                                                {% for error in form.first_name.errors %}
-                                                <span class="field-error">{{ error }}</span>
-                                                {% endfor %}
-                                            </p>
-                                        </div>
-                                        <!-- Last name -->
-                                        <div class="col-sm-6 mb-3">
-                                            <p class="lastname">
-                                                {{ form.last_name.label }} <br>
-                                                <div class="position-relative">
-                                                    {{ form.last_name(size=32, class="form-control") }} <br>
-                                                    {% if form.username.errors %}
-                                                    <span class="input-error-icon">
-                                                        <i class="bi bi-exclamation-circle-fill"></i>
-                                                    </span>
-                                                    {% endif %}
-                                                </div>
-                                                {% for error in form.last_name.errors %}
-                                                <span class="field-error">{{ error }}</span>
-                                                {% endfor %}
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- Username -->
-                                    <p class="username">
-                                        {{ form.username.label }} <br>
-                                        <div class="input-group position-relative">
-                                            {{ form.username(size=32, class="form-control") }}
-                                            {% if form.username.errors %}
-                                            <span class="input-error-icon">
-                                                <i class="bi bi-exclamation-circle-fill"></i>
-                                            </span>
-                                            {% endif %}
-                                        </div>
-                                        {% for error in form.username.errors %}
-                                        <span class="field-error">{{ error }}</span>
-                                        {% endfor %}
-                                    </p>
-                                    <!-- Email -->
-                                    <p class="email">
-                                        {{ form.email.label }} <br>
-                                        <div class="input-group position-relative">
-                                            {{ form.email(size=32, class="form-control") }}
-                                            {% if form.email.errors %}
-                                            <span class="input-error-icon">
-                                                <i class="bi bi-exclamation-circle-fill"></i>
-                                            </span>
-                                            {% endif %}
-                                        </div>
-                                        {% for error in form.email.errors %}
-                                        <span class="field-error">{{ error }}</span>
-                                        {% endfor %}
-                                    </p>
-                                    <!-- Password -->
-                                    <p class="password">
-                                        {{ form.password.label }} <br>
-                                        <div class="input-group position-relative">
-                                            {{ form.password(class="form-control", id="password") }}
-                                            {% if form.password.errors %}
-                                            <span class="input-error-icon">
-                                                <i class="bi bi-exclamation-circle-fill"></i>
-                                            </span>
-                                            {% endif %}
-                                            <button class="btn-outline-secondary" type="button" id="togglePassword">
-                                                <i class="bi bi-eye" id="toggleIcon"></i>
-                                            </button>
-                                        </div>
-                                        {% for error in form.password.errors %}
-                                        <span class="field-error">{{ error }}</span>
-                                        {% endfor %}
-                                    </p>
-                                    <!-- Confirm password -->
-                                    <p class="confirmpassword">
-                                        {{ form.confirm_password.label }} <br>
-                                        <div class="input-group position-relative">
-                                            {{ form.confirm_password(class="form-control", id="confirm_password") }}
-                                            {% if form.confirm_password.errors %}
-                                            <span class="input-error-icon">
-                                                <i class="bi bi-exclamation-circle-fill"></i>
-                                            </span>
-                                            {% endif %}
-                                            <button class="btn-outline-secondary" type="button" id="toggleConfirmPassword">
-                                                <i class="bi bi-eye" id="toggleConfirmIcon"></i>
-                                            </button>
-                                        </div>
-                                        {% for error in form.confirm_password.errors %}
-                                        <span class="field-error">{{ error }}</span>
-                                        {% endfor %}
-                                    </p>
+                <!-- ── EMAIL ─────────────────────────────────────── -->
+                <div class="mb-3">
+                  {{ form.email.label(class='register-label') }}
+                  {{ form.email(
+                      class='form-control register-input' + (' is-invalid' if form.email.errors else ''),
+                      placeholder='you@example.com'
+                  ) }}
+                  {% for error in form.email.errors %}
+                    <span class="field-error">{{ error }}</span>
+                  {% endfor %}
+                </div>
 
-                                    <div class="text-center">
-                                        <p class="registeraccount">
-                                            {{ form.submit(class="btn btn-blue btn-lg w-100 px-5 py-3 rounded-pill shadow") }}
-                                        </p>
-                                    </div>
-                                </form>
-                                <div class="text-center">
-                                    <p class="alreadyregistered">
-                                        Already have an account? <a class="signinlink" href="{{  url_for('login')  }}">Sign In</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </p>
-                    </div>
+
+                <!-- ── PASSWORD ──────────────────────────────────── -->
+                <div class="mb-3">
+                  {{ form.password.label(class='register-label') }}
+
+                  <!--
+                    .input-group.register-input-group
+                    ──────────────────────────────────
+                    This wrapper makes the text input and the eye button
+                    sit on the same horizontal line and share the same height.
+
+                    WHY NOT plain .input-group?
+                    Bootstrap's .input-group uses display:flex + align-items:stretch
+                    which is correct, but its .input-group-text / .btn children
+                    have their own border styles that fight with our custom
+                    register-input borders. Using .register-input-group as an
+                    additional class lets us override exactly what we need
+                    without fighting Bootstrap's specificity.
+
+                    KEY RULE: the input's right border is removed and its
+                    right border-radius is set to 0. The button provides the
+                    right border and rounded right corners. Together they form
+                    one seamless pill-shaped field.
+                  -->
+                  <div class="input-group register-input-group">
+
+                    <!--
+                      id="passwordField" is required by the togglePass()
+                      JavaScript function below to locate this input and
+                      switch its type between "password" and "text".
+                    -->
+                    {{ form.password(
+                        class='form-control register-input' + (' is-invalid' if form.password.errors else ''),
+                        placeholder='Min. 6 characters',
+                        id='passwordField'
+                    ) }}
+
+                    <!--
+                      Eye toggle button
+                      ──────────────────
+                      type="button"   → CRITICAL. Without this, inside a <form>
+                                        the button defaults to type="submit" and
+                                        clicking it submits the form instead of
+                                        toggling the password.
+
+                      tabindex="-1"   → Removes the button from the tab order.
+                                        Users navigating by keyboard should move
+                                        input → input, not input → eye → input.
+
+                      onclick         → Calls togglePass() with this field's id
+                                        and the icon's id.
+
+                      .register-eye-btn uses display:flex + align-items:center +
+                      justify-content:center with padding:0 so the icon sits
+                      perfectly centred regardless of the button's height.
+                      (See CSS for the full explanation.)
+                    -->
+                    <button
+                      class="register-eye-btn"
+                      type="button"
+                      onclick="togglePass('passwordField', 'eyeIcon1')"
+                      tabindex="-1"
+                      aria-label="Toggle password visibility"
+                    >
+                      <i class="bi bi-eye" id="eyeIcon1"></i>
+                    </button>
+
+                  </div>
+                  <!-- END password input-group -->
+
+                  {% for error in form.password.errors %}
+                    <span class="field-error">{{ error }}</span>
+                  {% endfor %}
+                </div>
+                <!-- END Password -->
+
+
+                <!-- ── CONFIRM PASSWORD ──────────────────────────── -->
+                <!--
+                  mb-4: slightly larger bottom margin before the submit
+                  button to create visual breathing room between the last
+                  field and the CTA.
+                -->
+                <div class="mb-4">
+                  {{ form.confirm_password.label(class='register-label') }}
+
+                  <div class="input-group register-input-group">
+                    {{ form.confirm_password(
+                        class='form-control register-input' + (' is-invalid' if form.confirm_password.errors else ''),
+                        placeholder='Repeat password',
+                        id='confirmField'
+                    ) }}
+                    <button
+                      class="register-eye-btn"
+                      type="button"
+                      onclick="togglePass('confirmField', 'eyeIcon2')"
+                      tabindex="-1"
+                      aria-label="Toggle confirm password visibility"
+                    >
+                      <i class="bi bi-eye" id="eyeIcon2"></i>
+                    </button>
+                  </div>
+
+                  {% for error in form.confirm_password.errors %}
+                    <span class="field-error">{{ error }}</span>
+                  {% endfor %}
+                </div>
+                <!-- END Confirm Password -->
+
+
+                <!-- ── SUBMIT BUTTON ─────────────────────────────── -->
+                <!--
+                  d-grid: Bootstrap utility that makes the button
+                  stretch to full width without needing width:100%.
+                  Cleaner than adding the w-100 class to the button itself
+                  because it keeps layout concerns in the wrapper.
+                -->
+                <div class="d-grid">
+                  <!--
+                    btn-lg: Bootstrap large button size
+                    btn-blue: our custom navy filled button
+                    The form.submit() call renders an <input type="submit">
+                    which Bootstrap and our styles treat like a <button>.
+                  -->
+                  {{ form.submit(class='btn btn-blue btn-lg w-100') }}
+                </div>
+
+              </form>
+              <!-- END form -->
+
+
+              <!-- ── DIVIDER + SIGN-IN LINK ─────────────────────── -->
+              <!--
+                Thin divider separates the form from the "already have
+                an account?" prompt. The inline style keeps the colour
+                consistent with the card interior without needing a
+                dedicated CSS rule.
+              -->
+              <hr style="border-color: #f0f0f0; margin: 1.5rem 0;">
+
+              <p class="text-center alreadyregistered mb-0">
+                Already have an account?
+                <!--
+                  url_for('login') generates the correct URL for the
+                  login route regardless of where the app is hosted,
+                  avoiding hardcoded paths that break when the app is
+                  mounted at a sub-path.
+                -->
+                <a class="signinlink" href="{{ url_for('login') }}">Sign in</a>
+              </p>
+
             </div>
+            <!-- END .register_form -->
+          </div>
+          <!-- END card body -->
+
         </div>
+        <!-- END .card.register-card -->
+      </div>
+      <!-- END column -->
     </div>
-</div>
+    <!-- END .row -->
+  </div>
+  <!-- END .container -->
 </section>
+<!-- END section.register -->
 
+
+<!--
+  ══════════════════════════════════════════════════════════════════════
+  JAVASCRIPT — Password visibility toggle
+  ══════════════════════════════════════════════════════════════════════
+
+  togglePass(fieldId, iconId)
+  ───────────────────────────
+  Locates the input and icon by their id attributes, then:
+    • switches the input type between "password" (masked) and "text" (visible)
+    • swaps the Bootstrap Icon class between bi-eye and bi-eye-slash
+
+  Why a single shared function instead of two separate ones?
+  Because both password fields do exactly the same thing — only the
+  element IDs differ. Passing IDs as arguments avoids duplicating logic.
+
+  Placed at the bottom of the template (before </body> via the base
+  template) so the DOM elements exist by the time the script runs.
+-->
 <script>
-    function setupToggle(buttonId, fieldId, iconId) {
-        const button = document.getElementById(buttonId);
-        const field = document.getElementById(fieldId);
-        const icon = document.getElementById(iconId);
+  function togglePass(fieldId, iconId) {
+    const field = document.getElementById(fieldId);
+    const icon  = document.getElementById(iconId);
 
-        button.addEventListener('click', function () {
-            const isPassword = field.type === 'password';
-            field.type = isPassword ? 'text' : 'password'
-            icon.classList.toggle('bi-eye', !isPassword);
-            icon.classList.toggle('bi-eye-slash', isPassword);
-        });
+    if (field.type === 'password') {
+      // Reveal: switch to plain text, update icon to "eye with slash"
+      field.type = 'text';
+      icon.classList.replace('bi-eye', 'bi-eye-slash');
+    } else {
+      // Hide: switch back to password, restore the plain eye icon
+      field.type = 'password';
+      icon.classList.replace('bi-eye-slash', 'bi-eye');
     }
-
-    setupToggle('togglePassword', 'password',          'toggleIcon');
-    setupToggle('toggleConfirmPassword', 'confirm_password', 'toggleConfirmIcon');
+  }
 </script>
+
 {% endblock %}
