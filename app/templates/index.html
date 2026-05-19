@@ -8,14 +8,16 @@
             <div class="col-md-6">
                 <p class="first_paragraph">✦ Your space to think out loud</p>
                 <h2 class="blue_band_header">Where ideas <br> find their <span class="voice">voice.</span></h2>
-                <p>
-                    Nova is a clean, distraction-free platform for sharing <br>
-                    thoughts, sparking conversations, and connecting with <br>
-                    people who think deeply.
+                <p> 
+                    <span class="bg_bluetext">
+                        Nova is a clean, distraction-free platform for sharing <br>
+                        thoughts, sparking conversations, and connecting with <br>
+                        people who think deeply.
+                    </span>
                 </p>
                 <div class="d-grid gap-2 d-md-block">
-                    <button class="btn btn-warning m-2 rounded-4 p-2" type="button">Start for free</button>
-                    <button class="btn btn-outline-secondary m-2 rounded-4 p-2" type="button">Sign In</button>
+                    <a class="btn btn-gold btn-lg px-5 py-3 rounded-pill shadow" href="{{ url_for('register') }}">Start for free</a>
+                    <a class="btn btn-outline-secondary btn-lg px-5 py-3 rounded-pill shadow" href="{{ url_for('login') }}">Sign in</a>
                 </div>
                 <div class="d-flex gap-4 mt-4">
                     <h3>10k+ <br> <small class="data">Members</small></h3>
@@ -23,7 +25,6 @@
                     <h3>100% <br> <small class="data">AD-Free</small></h3>
                 </div>
             </div>
-            <!-- Insert image -->
             <div class="col-md-6 d-flex justify-content-center align-items-center">
                 <div class="hero-card">
                     <div class="hero-card-header">
@@ -45,43 +46,84 @@
                     </div>
                 </div>
             </div>
-            <!-- End image -->
         </div>
     </div>
 </section>
 
-<!-- Start White band -->
+<!-- Start White Band -->
 <section class="white_band">
-<div class="row text-center">
-    <div class="col-md-3">
-        <!-- Empty column -->
-    </div>
-    <div class="col-md-6">
-        <h3>Why Nova</h3>
-        <h2>
-            Everything you need, <br>
-            nothing you don't.
-        </h2>
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-12 mb-4">
+                <small><span class="why_nova">Why Nova</span></small>
+                <h2 class="everything">
+                    Everything you need, <br>
+                    nothing you don't.
+                </h2>
+            </div>
+        </div>
 
+        <!-- 3 Feature Cards -->
+        <div class="row g-4 justify-content-center pb-5">
+
+            <!-- Card 1 -->
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon-wrap">
+                        <i class="bi bi-shield-lock-fill feature-icon"></i>
+                    </div>
+                    <h5 class="feature-title">Private &amp; Secure</h5>
+                    <p class="feature-text">
+                        Your data stays yours. No ads, no tracking, no selling
+                        your profile to the highest bidder.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon-wrap">
+                        <i class="bi bi-people-fill feature-icon"></i>
+                    </div>
+                    <h5 class="feature-title">Real Community</h5>
+                    <p class="feature-text">
+                        Connect with a curated community of thoughtful
+                        writers, builders, and creators.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon-wrap">
+                        <i class="bi bi-pencil-fill feature-icon"></i>
+                    </div>
+                    <h5 class="feature-title">Beautiful Writing</h5>
+                    <p class="feature-text">
+                        A distraction-free canvas that makes your words the
+                        focus. Simple, fast, elegant.
+                    </p>
+                </div>
+            </div>
+
+        </div>
     </div>
-    <div class="col-md-3">
-        <!-- Empty column -->
-    </div>
-</div>
 </section>
 
-<!-- Start Beige band -->
+<!-- Start Beige Band -->
 <section class="beige_band">
     <div class="row text-center">
         <div class="col-md-12">
-            <h2>Ready to join?</h2>
-            <p>
-                Create a free acount in under 30 seconds.No credit <br>
+            <h2 class="ready">Ready to join?</h2>
+            <p class="account">
+                <span class="bg_beigetext">
+                Create a free account in under 30 seconds. No credit <br>
                 card required.
+                </span>
             </p>
-        <div class="d-grid gap-2 d-md-block">
-            <button class="btn btn-primary" type="button">Create your account→</button>
-        </div>
+            <a class="btn btn-gold btn-lg px-5 py-3 rounded-pill shadow" href="{{ url_for('register') }}">Create your account →</a>
         </div>
     </div>
 </section>

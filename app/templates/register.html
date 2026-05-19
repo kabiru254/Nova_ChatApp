@@ -1,87 +1,161 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="row text-center">
-    <div class="col-md-4">
-        <!-- Empty column -->
-    </div>
+<section class="register">
+<div class="row justify-content-center align-items-center min-vh-100">
     <div class="col-md-4">
         <div class="card-deck">
             <div class="card">
-                <div class="card-block">
-                    <h4 class="card-title">Create your account.</h4>
-                    <p>Join Nova - free,forever.</p>
-
-                    <p class="card-text">
-                        <div class="register_form">
-                            <form action="" method="post" novalidate>
-                                {{ form.hidden_tag() }}
-
-                                <!-- First Name & Last Name side by side -->
-                                <div class="row">
-                                    <div class="col-sm-6 mb-3">
-                                        <p>
-                                            {{ form.first_name.label }} <br>
-                                            {{ form.first_name(size=32) }} <br>
-                                            {% for error in form.first_name.errors %}
-                                            <span style="color: red;">{{ error }}</span>
-                                            {% endfor %}
-                                        </p>
-                                    </div>
-                                    <div class="col-sm-6 mb-3">
-                                        <p>
-                                            {{ form.last_name.label }} <br>
-                                            {{ form.last_name(size=32) }} <br>
-                                            {% for error in form.last_name.errors %}
-                                            <span style="color: red;">{{ error }}</span>
-                                            {% endfor %}
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <p>
-                                    {{ form.username.label }} <br>
-                                    {{ form.username(size=32) }} <br>
-                                    {% for error in form.username.errors %}
-                                    <span style="color: red;">{{ error }}</span>
-                                    {% endfor %}
-                                </p>
-                                <p>
-                                    {{ form.email.label }} <br>
-                                    {{ form.email(size=32) }} <br>
-                                    {% for error in form.email.errors %}
-                                    <span style="color: red;">{{ error }}</span>
-                                    {% endfor %}
-                                </p>
-                                <p>
-                                    {{ form.password.label }} <br>
-                                    {{ form.password(size=32) }} <br>
-                                    {% for error in form.password.errors %}
-                                    <span style="color: red;">{{ error }}</span>
-                                    {% endfor %}
-                                </p>
-                                <p>
-                                    {{ form.confirm_password.label }} <br>
-                                    {{ form.confirm_password(size=32) }} <br>
-                                    {% for error in form.confirm_password.errors %}
-                                    <span style="color: red;">{{ error }}</span>
-                                    {% endfor %}
-                                </p>
-                                <p>
-                                    {{ form.submit() }}
-                                </p>
-                            </form>
-                            <p>
-                                Already have an account? <a href="{{  url_for('login')  }}">Sign In</a>
-                            </p>
-                        </div>
-                    </p>
+                <div class="card-header">
+                    <h4 class="card-title">Create your account</h4>
+                    <p> <span class="join">Join Nova - free,forever.</span></p>
                 </div>
+
+                    <div class="card-body">
+                        <p class="card-text">
+                            <div class="register_form">
+                                <form action="" method="post" novalidate>
+                                    {{ form.hidden_tag() }}
+
+                                    <!-- First Name & Last Name side by side -->
+                                    <div class="row">
+                                        <!-- First name -->
+                                        <div class="col-sm-6 mb-3">
+                                            <p class="firstname">
+                                                {{ form.first_name.label }} <br>
+                                                <div class="position-relative">
+                                                    {{ form.first_name(size=32, class="form-control") }} <br>
+                                                    {% if form.username.errors %}
+                                                    <span class="input-error-icon">
+                                                        <i class="bi bi-exclamation-circle-fill"></i>
+                                                    </span>
+                                                    {% endif %}
+                                                </div>
+                                                {% for error in form.first_name.errors %}
+                                                <span class="field-error">{{ error }}</span>
+                                                {% endfor %}
+                                            </p>
+                                        </div>
+                                        <!-- Last name -->
+                                        <div class="col-sm-6 mb-3">
+                                            <p class="lastname">
+                                                {{ form.last_name.label }} <br>
+                                                <div class="position-relative">
+                                                    {{ form.last_name(size=32, class="form-control") }} <br>
+                                                    {% if form.username.errors %}
+                                                    <span class="input-error-icon">
+                                                        <i class="bi bi-exclamation-circle-fill"></i>
+                                                    </span>
+                                                    {% endif %}
+                                                </div>
+                                                {% for error in form.last_name.errors %}
+                                                <span class="field-error">{{ error }}</span>
+                                                {% endfor %}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <!-- Username -->
+                                    <p class="username">
+                                        {{ form.username.label }} <br>
+                                        <div class="input-group position-relative">
+                                            {{ form.username(size=32, class="form-control") }}
+                                            {% if form.username.errors %}
+                                            <span class="input-error-icon">
+                                                <i class="bi bi-exclamation-circle-fill"></i>
+                                            </span>
+                                            {% endif %}
+                                        </div>
+                                        {% for error in form.username.errors %}
+                                        <span class="field-error">{{ error }}</span>
+                                        {% endfor %}
+                                    </p>
+                                    <!-- Email -->
+                                    <p class="email">
+                                        {{ form.email.label }} <br>
+                                        <div class="input-group position-relative">
+                                            {{ form.email(size=32, class="form-control") }}
+                                            {% if form.email.errors %}
+                                            <span class="input-error-icon">
+                                                <i class="bi bi-exclamation-circle-fill"></i>
+                                            </span>
+                                            {% endif %}
+                                        </div>
+                                        {% for error in form.email.errors %}
+                                        <span class="field-error">{{ error }}</span>
+                                        {% endfor %}
+                                    </p>
+                                    <!-- Password -->
+                                    <p class="password">
+                                        {{ form.password.label }} <br>
+                                        <div class="input-group position-relative">
+                                            {{ form.password(class="form-control", id="password") }}
+                                            {% if form.password.errors %}
+                                            <span class="input-error-icon">
+                                                <i class="bi bi-exclamation-circle-fill"></i>
+                                            </span>
+                                            {% endif %}
+                                            <button class="btn-outline-secondary" type="button" id="togglePassword">
+                                                <i class="bi bi-eye" id="toggleIcon"></i>
+                                            </button>
+                                        </div>
+                                        {% for error in form.password.errors %}
+                                        <span class="field-error">{{ error }}</span>
+                                        {% endfor %}
+                                    </p>
+                                    <!-- Confirm password -->
+                                    <p class="confirmpassword">
+                                        {{ form.confirm_password.label }} <br>
+                                        <div class="input-group position-relative">
+                                            {{ form.confirm_password(class="form-control", id="confirm_password") }}
+                                            {% if form.confirm_password.errors %}
+                                            <span class="input-error-icon">
+                                                <i class="bi bi-exclamation-circle-fill"></i>
+                                            </span>
+                                            {% endif %}
+                                            <button class="btn-outline-secondary" type="button" id="toggleConfirmPassword">
+                                                <i class="bi bi-eye" id="toggleConfirmIcon"></i>
+                                            </button>
+                                        </div>
+                                        {% for error in form.confirm_password.errors %}
+                                        <span class="field-error">{{ error }}</span>
+                                        {% endfor %}
+                                    </p>
+
+                                    <div class="text-center">
+                                        <p class="registeraccount">
+                                            {{ form.submit(class="btn btn-blue btn-lg w-100 px-5 py-3 rounded-pill shadow") }}
+                                        </p>
+                                    </div>
+                                </form>
+                                <div class="text-center">
+                                    <p class="alreadyregistered">
+                                        Already have an account? <a class="signinlink" href="{{  url_for('login')  }}">Sign In</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </p>
+                    </div>
             </div>
         </div>
     </div>
-    <div class="col-md-4">
-        <!-- Empty column -->
-    </div>
 </div>
+</section>
+
+<script>
+    function setupToggle(buttonId, fieldId, iconId) {
+        const button = document.getElementById(buttonId);
+        const field = document.getElementById(fieldId);
+        const icon = document.getElementById(iconId);
+
+        button.addEventListener('click', function () {
+            const isPassword = field.type === 'password';
+            field.type = isPassword ? 'text' : 'password'
+            icon.classList.toggle('bi-eye', !isPassword);
+            icon.classList.toggle('bi-eye-slash', isPassword);
+        });
+    }
+
+    setupToggle('togglePassword', 'password',          'toggleIcon');
+    setupToggle('toggleConfirmPassword', 'confirm_password', 'toggleConfirmIcon');
+</script>
 {% endblock %}

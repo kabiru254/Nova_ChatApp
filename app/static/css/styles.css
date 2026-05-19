@@ -43,7 +43,11 @@ button {
 
 /* === Navbar === */
 #navbar {
-    background-color: #0e1c2b;
+    background-color: #0d1b2a;
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 #navbar .navbar-brand {
@@ -114,8 +118,9 @@ button {
 
 /* === Footer === */
 .footer {
-    background-color: #0e1c2b;
+    background-color: #0d1b2a;
     color: #ffffff;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .footer-brand {
@@ -198,7 +203,8 @@ button {
 
 
 
-/* Index page */
+/* ===Index page === */
+/* === Start of blue band === */
 .blue_band {
     background-color: #0e1c2b;
     width: 100%;
@@ -222,6 +228,9 @@ button {
 .blue_band .first_paragraph {
     font-size: 18px;
     color: #c9a84c;
+}
+.blue_band .bg_bluetext {
+    color: #6b7280;
 }
 .blue_band .blue_band_header {
     font-weight: 1000;
@@ -289,16 +298,254 @@ button {
     font-size: 0.8rem;
 }
 /* === End mock card === */
+/* === End of blue band === */
+
+/* === Start of white band === */
 .white_band {
     background-color: #ffffff;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     font-size: small;
 }
+
+.white_band .why_nova {
+    color: #c9a84c;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.white_band .everything {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+/* 3 cards */
+.feature-card {
+    background-color: #f5f0e8;
+    border-radius: 16px;
+    padding: 32px 28px;
+    text-align: left;
+    height: 100%;
+}
+
+.feature-icon-wrap {
+    background-color: #0e1c2b;
+    border-radius: 12px;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.feature-icon {
+    color: #c9a84c;
+    font-size: 1.3rem;
+}
+
+.feature-title {
+    color: #0e1c2b;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.feature-text {
+    color: #6b7280;
+    font-size: 0.875rem;
+    line-height: 1.65;
+    margin-bottom: 0;
+}
+/* End 3 cards */
+
+/* === End of white band === */
+
+/* === Start of beige band */
 .beige_band {
     background-color: #f0ebe0;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     font-size: small;
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
-/* End index page */
+
+.beige_band .ready {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+}
+
+.beige_band .bg_beigetext {
+    color: #6b7280;
+}
+
+.beige_band .account {
+    font-size: 1.1rem;
+}
+
+.btn-gold {
+    color: #c9a84c;
+    border: 1.5px solid #c9a84c;
+    border-radius: 50px;
+    padding: 6px 18px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-gold:hover {
+    background-color: #c9a84c;
+    color: #0e1c2b;
+}
+
+/* === End of beige band */
+/* === End index page === */
+
+
+/* === Start register page === */
+.register {
+    background-color: #0e1c2b;
+}
+
+.register .card {
+    border-radius: 20px;
+    border-color: #0e1c2b;
+}
+
+.register .card-header {
+    background-color: #14304c;
+    color: #ffffff;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    border-color: #14304c;
+    padding-top: 35px;
+}
+
+.register .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+}
+
+.register .join {
+    color: rgba(255, 255, 255, 0.55)
+}
+
+.register .card-body {
+
+}
+
+.register_form .form-control {
+    border: 2.5px solid rgba(0, 0, 0, 0.06);
+    border-radius: 10px;
+    padding: 12px 8px;
+    font-size: 1.1rem;
+    color: black;
+    background-color: #ffffff;
+}
+
+/* Password view icon */
+#togglePassword,
+#toggleConfirmPassword {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border: 2.5px solid rgba(0, 0, 0, 0.06);
+    border-left: none;
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
+    color: #6b7280;
+    flex-shrink: 0;
+}
+
+#togglePassword:hover,
+#toggleConfirmPassword:hover {
+    background-color: #f9fafb;
+    color: #0e1c2b;
+}
+
+.register_form label {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #6b7280;
+    margin-bottom: 1px;
+    padding: 2px 2px;
+    display: block;
+}
+
+/* Error icon */
+.input-error-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #dc3545;
+    font-size: 1rem;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.password .input-error-icon,
+.confirm-password .input-error-icon {
+    right: 52px;
+}
+
+/* Error message */
+.field-error {
+    color: #dc3545;
+    font-size: 0.8rem;
+    margin-top: 4px;
+    display: block;
+}
+
+/* Border on errors */
+.register_form .form-control.is-invalid,
+.register_form p:has(.field-error) .form-control {
+    border-color: #dc3545;
+}
+
+.register_form .form-control::placeholder {
+    color: #728aa5;
+    font-size: 0.9rem;
+}
+
+/* Begin submit button */
+.btn-blue {
+    color: #ffffff;
+    border: 1.5px solid #0e1c2b;
+    background-color: #0e1c2b;
+    border-radius: 50px;
+    padding: 6px 18px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-decoration: none;
+    width: 100;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-blue:hover {
+    background-color: #1a3a5d;
+    color: #ffffff;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+/* End submit button */
+
+.register .alreadyregistered {
+    color: #728aa5;
+    font-size: 1rem;
+}
+
+.register .alreadyregistered .signinlink {
+    color: #c9a84c !important;
+    text-decoration: none;
+}
+
+.
+
+/* === End register page === */

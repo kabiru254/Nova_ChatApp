@@ -15,13 +15,13 @@ class EditProfileForm(FlaskForm):
 
 class RegisterForm(FlaskForm):
     """Register Form"""
-    first_name = StringField('First Name', validators=[DataRequired(), Length(1, 64)])
-    last_name = StringField('Last Name', validators=[DataRequired(), Length(1, 64)])
-    username = StringField('Username', validators=[DataRequired(), Length(1, 64)])
-    email = StringField('Email', validators=[DataRequired(), Email()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo("password")])
-    submit = SubmitField('Register')
+    first_name = StringField('First Name', validators=[DataRequired(), Length(1, 64)], render_kw={"placeholder" : "Jane"})
+    last_name = StringField('Last Name', validators=[DataRequired(), Length(1, 64)], render_kw={"placeholder": "Doe"})
+    username = StringField('Username', validators=[DataRequired(), Length(1, 64)], render_kw={"placeholder": "JaneDoe"})
+    email = StringField('Email', validators=[DataRequired(), Email()], render_kw={"placeholder": "youremail@example.com"})
+    password = PasswordField('Password', validators=[DataRequired(), Length(min=6, max=140)], render_kw={"placeholder": "Min. 6 characters"})
+    confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo("password")], render_kw={"placeholder": "Repeat Password"})
+    submit = SubmitField('Create Account')
 
 
 class LoginForm(FlaskForm):
