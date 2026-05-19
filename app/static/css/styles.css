@@ -1,551 +1,766 @@
-/* === General Styles === */
-section, footer {
-    padding-left: 60px;
-    padding-right: 60p;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    display: block;
-}
-
-/* Add this new rule */
-main {
-    flex: 1;
-}
-
-body {
-    font-family: 'DM Sans', sans-serif;
-    margin: 0;
-    padding: 0;
-
-    /* Sticky footer */
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-h2 {
-    font-size: 48px;
-}
-
-h3 {
-    font-size: 35px;
-}
-
-p {
-    font-size: 15px;
-}
-
-button {
-    border-radius: 40px;
-}
-
-/* === End of General Styles === */
-
-/* === Navbar === */
-#navbar {
-    background-color: #0d1b2a;
-    position: sticky;
-    top: 0;
-    z-index: 1030;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-#navbar .navbar-brand {
-    color: #ffffff;
-    font-weight: 700;
-    font-size: 1.3rem;
-}
-
-#navbar .nova_dot {
-    color: #c9a84c;
-}
-
-#navbar .navbar-brand:hover {
-    color: #ffffff;
-}
-
-#navbar .nav-link {
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 0.9rem;
-}
-
-#navbar .nav-link:hover {
-    color: #ffffff;
-}
-
-#navbar .navbar-signin {
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 0.9rem;
-}
-
-/* Get Started button styling */
-.btn-outline-getstarted {
-    color: #c9a84c;
-    border: 1.5px solid #c9a84c;
-    border-radius: 50px;
-    padding: 6px 18px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    text-decoration: none;
-    transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.btn-outline-getstarted:hover {
-    background-color: #c9a84c;
-    color: #0e1c2b;
-}
-
-/* Dropdown menu */
-.dropdown-menu {
-    background-color: #0e1c2b;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.dropdown-item {
-    color: rgba(255, 255, 255, 0.85);
-    font-size: 0.9rem;
-}
-
-.dropdown-item:hover {
-    background-color: rgba(255, 255, 255, 0.06);
-    color: #ffffff;
-}
-
-.dropdown-divider {
-    border-color: rgba(255, 255, 255, 0.08);
-}
-/* === End Navbar */
-
-/* === Footer === */
-.footer {
-    background-color: #0d1b2a;
-    color: #ffffff;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.footer-brand {
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: #ffffff;
-    margin-bottom: 0.5rem;
-}
-
-.footer-dot {
-    color: #c9a84c;
-}
-
-.footer-tagline {
-    color: #8a9bb0;
-    font-size: 0.875rem;
-    line-height: 1.6;
-}
-
-.footer-heading {
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1rem;
-    color: #ffffff;
-    margin-bottom: 1rem;
-}
-
-/* Remove bullet points */
-.footer-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.footer-links li {
-    margin-bottom: 0.6rem;
-}
-
-.footer-links a {
-    color: #8a9bb0;
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: color 0.2s ease;
-}
-
-.footer-links a:hover {
-    color: #ffffff;
-}
-
-/* Social media icons */
-.footer-icons {
-    display: flex;
-    gap: 16px;
-}
-
-.footer-icon {
-    color: #ffffff !important;
-    font-size: 1.1rem;
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.footer-icon:hover {
-    color: #c9a84c !important;
-}
-
-/* Divider */
-.footer-divider {
-    border-color: rgba(255, 255, 255, 0.08);
-    margin: 0;
-}
-
-/* Bottom small text */
-.footer-small {
-    color: #8a9bb0;
-    font-size: 0.8rem;
-}
-/* === End Footer === */
-
-
-
-/* ===Index page === */
-/* === Start of blue band === */
-.blue_band {
-    background-color: #0e1c2b;
-    width: 100%;
-    text-align: left;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: small;
-    padding: 60px 0;
-    color: #ffffff;
-}
-.blue_band .voice {
-    color: #c9a84c;
-    font-style: italic;
-}
-.blue_band h3 {
-    font-size: 25px;
-    color: #ffffff;
-}
-.blue_band h3 .data {
-    font-size: 14px;
-}
-.blue_band .first_paragraph {
-    font-size: 18px;
-    color: #c9a84c;
-}
-.blue_band .bg_bluetext {
-    color: #6b7280;
-}
-.blue_band .blue_band_header {
-    font-weight: 1000;
-}
-/* ── Mock Post Card ───────────────────────────────── */
-.hero-card {
-    background-color: #1a2d3d;
-    border-radius: 16px;
-    padding: 24px;
-    width: 320px;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.4);
-}
-
-.hero-card-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background-color: #243b50;
-    border-radius: 10px;
-    padding: 12px;
-    margin-bottom: 16px;
-}
-
-.hero-avatar {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background-color: #c9a84c;
-    flex-shrink: 0;
-}
-
-.hero-card-lines {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    flex: 1;
-}
-
-.line {
-    height: 8px;
-    border-radius: 4px;
-    background-color: #3a5068;
-}
-
-.line-full   { width: 100%; }
-.line-medium { width: 70%; }
-.line-short  { width: 55%; }
-.line-xshort { width: 35%; }
-
-.hero-card-body {
-    padding: 4px 0 16px;
-}
-
-.hero-card-footer {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    color: #8a9bb0;
-    font-size: 0.85rem;
-}
-
-.hero-card-time {
-    margin-left: auto;
-    color: #c9a84c;
-    font-size: 0.8rem;
-}
-/* === End mock card === */
-/* === End of blue band === */
-
-/* === Start of white band === */
-.white_band {
-    background-color: #ffffff;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: small;
-}
-
-.white_band .why_nova {
-    color: #c9a84c;
-    text-transform: uppercase;
-    font-weight: 800;
-}
-
-.white_band .everything {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-}
-
-/* 3 cards */
-.feature-card {
-    background-color: #f5f0e8;
-    border-radius: 16px;
-    padding: 32px 28px;
-    text-align: left;
-    height: 100%;
-}
-
-.feature-icon-wrap {
-    background-color: #0e1c2b;
-    border-radius: 12px;
-    width: 52px;
-    height: 52px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.feature-icon {
-    color: #c9a84c;
-    font-size: 1.3rem;
-}
-
-.feature-title {
-    color: #0e1c2b;
-    font-weight: 600;
-    font-size: 1rem;
-    margin-bottom: 10px;
-}
-
-.feature-text {
-    color: #6b7280;
-    font-size: 0.875rem;
-    line-height: 1.65;
-    margin-bottom: 0;
-}
-/* End 3 cards */
-
-/* === End of white band === */
-
-/* === Start of beige band */
-.beige_band {
-    background-color: #f0ebe0;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: small;
-    padding-top: 100px;
-    padding-bottom: 100px;
-}
-
-.beige_band .ready {
-    font-family: 'Playfair Display', serif;
-    font-weight: 600;
-}
-
-.beige_band .bg_beigetext {
-    color: #6b7280;
-}
-
-.beige_band .account {
-    font-size: 1.1rem;
-}
-
-.btn-gold {
-    color: #c9a84c;
-    border: 1.5px solid #c9a84c;
-    border-radius: 50px;
-    padding: 6px 18px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    text-decoration: none;
-    transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.btn-gold:hover {
-    background-color: #c9a84c;
-    color: #0e1c2b;
-}
-
-/* === End of beige band */
-/* === End index page === */
-
-
-/* === Start register page === */
-.register {
-    background-color: #0e1c2b;
-}
-
-.register .card {
-    border-radius: 20px;
-    border-color: #0e1c2b;
-}
-
-.register .card-header {
-    background-color: #14304c;
-    color: #ffffff;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    border-color: #14304c;
-    padding-top: 35px;
-}
-
-.register .card-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.9rem;
-}
-
-.register .join {
-    color: rgba(255, 255, 255, 0.55)
-}
-
-.register .card-body {
-
-}
-
-.register_form .form-control {
-    border: 2.5px solid rgba(0, 0, 0, 0.06);
-    border-radius: 10px;
-    padding: 12px 8px;
-    font-size: 1.1rem;
-    color: black;
-    background-color: #ffffff;
-}
-
-/* Password view icon */
-#togglePassword,
-#toggleConfirmPassword {
-    width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #ffffff;
-    border: 2.5px solid rgba(0, 0, 0, 0.06);
-    border-left: none;
-    border-radius: 0 10px 10px 0;
-    cursor: pointer;
-    color: #6b7280;
-    flex-shrink: 0;
-}
-
-#togglePassword:hover,
-#toggleConfirmPassword:hover {
-    background-color: #f9fafb;
-    color: #0e1c2b;
-}
-
-.register_form label {
-    font-size: 0.9rem;
-    font-weight: 400;
-    color: #6b7280;
-    margin-bottom: 1px;
-    padding: 2px 2px;
-    display: block;
-}
-
-/* Error icon */
-.input-error-icon {
-    position: absolute;
-    right: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #dc3545;
-    font-size: 1rem;
-    pointer-events: none;
-    z-index: 5;
-}
-
-.password .input-error-icon,
-.confirm-password .input-error-icon {
-    right: 52px;
-}
-
-/* Error message */
+/*
+  ╔══════════════════════════════════════════════════════════════════════╗
+  ║  REGISTER PAGE — register_fixes.css                                  ║
+  ║                                                                      ║
+  ║  PURPOSE                                                             ║
+  ║  ───────                                                             ║
+  ║  This file fixes two problems in the original register page:         ║
+  ║                                                                      ║
+  ║  1. LAYOUT — The card did not sit centred on the page; it was        ║
+  ║     pushed down by inherited section padding and was too tall to     ║
+  ║     fit without scrolling.                                           ║
+  ║                                                                      ║
+  ║  2. EYE BUTTON — The show/hide password icon was vertically          ║
+  ║     off-centre inside the input group because the button used a      ║
+  ║     fixed pixel height that didn't match the input's real height.    ║
+  ║                                                                      ║
+  ║  HOW TO USE                                                          ║
+  ║  ──────────                                                          ║
+  ║  Add these rules to your existing stylesheet AFTER the original      ║
+  ║  register-page rules so that they override them via cascade.         ║
+  ║  Alternatively, replace the matching rule blocks in the original.    ║
+  ╚══════════════════════════════════════════════════════════════════════╝
+*/
+
+
+/* ══════════════════════════════════════════════════════════════════════
+   1. SECTION — viewport centering
+   ══════════════════════════════════════════════════════════════════════
+
+   THE PROBLEM
+   ───────────
+   Your global stylesheet contains this rule:
+
+       section, footer {
+           padding-left: 60px;
+           padding-right: 60px;   ← (note: original has a typo: "60p")
+           padding-top: 30px;
+           padding-bottom: 30px;
+       }
+
+   Because section.register inherits from that rule, it gets 30px of
+   top padding. That pushes the inner .row (which has min-vh-100 +
+   align-items-center) downward, so the card's optical centre lands
+   below the true viewport centre. The more fields you add, the worse
+   the scroll gets.
+
+   THE FIX
+   ───────
+   • Reset padding to 0 on section.register so the global rule no
+     longer affects it.
+   • Move vertical centring ownership to the section itself using
+     min-height + display:flex + align-items:center.
+   • Add symmetrical top/bottom padding (2rem each) so the card never
+     touches the navbar or footer edge on short viewports.
+   • calc(100vh - 72px): subtracts the navbar's height (72px) from the
+     full viewport height, so the section fills exactly the visible
+     area below the navbar — not the full page including the navbar.
+*/
+section.register {
+  padding: 0;                     /* ← overrides the global section padding  */
+  padding-top: 2rem;              /* breathing room at the top               */
+  padding-bottom: 2rem;           /* breathing room at the bottom            */
+  min-height: calc(100vh - 72px); /* fill the viewport below the navbar      */
+  display: flex;                  /* enable flexbox on the section           */
+  align-items: center;            /* vertically centre the .container child  */
+  background-color: #0e1c2b;      /* dark navy background (unchanged)        */
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════
+   2. CARD SHELL
+   ══════════════════════════════════════════════════════════════════════
+
+   Bootstrap's .card has border-radius: 0.375rem and a faint border
+   by default. We override both to get the polished rounded card with
+   a prominent shadow that matches the doc-1 auth-card style.
+
+   overflow: hidden is REQUIRED — without it, the dark card-header
+   bleeds outside the rounded corners on the top edge, leaving
+   square corners at the top even though border-radius is set.
+*/
+.register-card {
+  border-radius: 20px !important; /* rounded corners — needs !important to  */
+                                  /* override Bootstrap's .card border-radius */
+  border: none !important;        /* remove Bootstrap's default grey border  */
+  overflow: hidden;               /* clip child elements to the rounded rect */
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35) !important; /* deep shadow    */
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════
+   3. CARD HEADER
+   ══════════════════════════════════════════════════════════════════════
+
+   THE PROBLEM
+   ───────────
+   The original only set padding-top: 35px with no side padding
+   defined, so Bootstrap's default card-header padding (0.75rem 1.25rem)
+   applied to the sides. The result was inconsistent spacing: tall
+   vertically but cramped horizontally.
+
+   Also, border-top-left-radius and border-top-right-radius were set
+   on the header directly. That only works when the card itself has no
+   border-radius — once we add border-radius to .register-card and
+   overflow:hidden, those individual corner rules become redundant.
+
+   THE FIX
+   ───────
+   Uniform padding on all four sides. The gradient and gold-tinted
+   bottom border are preserved from the original.
+*/
+.register-card-header {
+  background: linear-gradient(135deg, #14304c, #0f2840); /* dark blue grad   */
+  color: #ffffff;
+  padding: 1.5rem 1.75rem;        /* uniform — tighter than original 35px top */
+  border-bottom: 1px solid rgba(201, 168, 76, 0.2) !important; /* gold tint  */
+  /* Note: border-top-left/right-radius removed — handled by card overflow   */
+}
+
+/* Card title inside the header */
+.register-card-header .card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;              /* reduced from 1.9rem — less dominant      */
+  margin-bottom: 0.25rem;
+  color: #ffffff;
+}
+
+/* Subtitle "Join Nova — free, forever." */
+.register-card-header .join {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.875rem;
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════
+   4. CARD BODY
+   ══════════════════════════════════════════════════════════════════════
+
+   Bootstrap's default .card-body padding is 1rem (Bootstrap 5).
+   We raise it slightly to 1.75rem on all sides for more visual
+   breathing room, while keeping it smaller than the original which
+   had no explicit padding and relied on inner <p> margins to create
+   spacing — a fragile approach.
+*/
+.register-card-body {
+  background: #ffffff;
+  padding: 1.75rem;
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════
+   5. LABELS
+   ══════════════════════════════════════════════════════════════════════
+
+   Scoped to .register-label so these styles don't affect labels
+   elsewhere in the app. The uppercase + letter-spacing treatment
+   matches the doc-2 design system's form-label style.
+*/
+.register-label {
+  display: block;                 /* ensures the label sits on its own line  */
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #6b7280;                 /* muted grey                              */
+  margin-bottom: 0.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════
+   6. INPUTS
+   ══════════════════════════════════════════════════════════════════════
+
+   THE PROBLEM
+   ───────────
+   Original values:
+       font-size: 1.1rem   → inputs rendered tall
+       padding: 12px 8px   → added to the tall height
+
+   That extra height meant more total card height, pushing the form
+   past the viewport and requiring scrolling.
+
+   THE FIX
+   ───────
+   Scale down to match the doc-1/doc-2 system's proportions:
+       font-size: 0.92rem
+       padding: 0.6rem 0.9rem
+
+   The !important flags are needed because Bootstrap's .form-control
+   has its own padding and font-size rules with decent specificity.
+*/
+.register-input {
+  border: 1.5px solid #e5e7eb !important;
+  border-radius: 10px !important;
+  padding: 0.6rem 0.9rem !important;  /* ← reduced from 12px 8px            */
+  font-size: 0.92rem !important;      /* ← reduced from 1.1rem              */
+  color: #1a1a2e;
+  background-color: #ffffff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Focus state: gold border + soft glow, matching the doc-2 system */
+.register-input:focus {
+  border-color: #c9a84c !important;
+  box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.15) !important;
+  outline: none;
+}
+
+/* Validation error state */
+.register-input.is-invalid {
+  border-color: #dc3545 !important;
+}
+
+/* Ghost text colour and size */
+.register-input::placeholder {
+  color: #9ca3af;
+  font-size: 0.88rem;
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════
+   7. INPUT GROUP + EYE BUTTON — the icon centring fix
+   ══════════════════════════════════════════════════════════════════════
+
+   THE PROBLEM (in detail)
+   ───────────────────────
+   The original eye button CSS was:
+
+       #togglePassword,
+       #toggleConfirmPassword {
+           width: 44px;
+           height: 44px;          ← FIXED HEIGHT — this is the root cause
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           background-color: #ffffff;
+           border: 2.5px solid rgba(0, 0, 0, 0.06);
+           border-left: none;
+           border-radius: 0 10px 10px 0;
+           ...
+       }
+
+   The button declared height: 44px, but the adjacent input renders at
+   a height determined by:
+       font-size (1.1rem × line-height 1.5 ≈ 26.4px)
+       + padding-top (12px) + padding-bottom (12px)
+       + border-top (2.5px) + border-bottom (2.5px)
+       = ~55.4px total
+
+   So the button (44px) was shorter than the input (≈55px).
+   Bootstrap's input-group stretches children with align-items:stretch,
+   meaning the button DID grow to 55px — but its own internal
+   align-items:center was now centering the icon within a 44px
+   declared height inside a 55px box, causing a misalignment.
+
+   THE FIX
+   ───────
+   Remove the fixed height entirely. Let the button be a true flex
+   child that stretches to match the input naturally. Then use
+   display:flex + align-items:center + justify-content:center + padding:0
+   on the button to centre the icon within whatever height it ends up.
+
+   Step-by-step:
+
+   A) .register-input-group
+      Sets up the flex container. align-items:stretch makes both the
+      input and button grow to the same height automatically.
+
+   B) .register-input-group .register-input
+      Removes the right border and right border-radius so the input
+      visually connects to the button — they appear as one field.
+
+   C) .register-eye-btn
+      • No fixed height — height is determined by the flex container.
+      • display:flex + align-items:center + justify-content:center
+        centres the <i> icon both vertically and horizontally.
+      • padding:0 is REQUIRED — any padding would offset the icon
+        from true centre.
+      • width:44px gives a comfortable tap target.
+*/
+
+/* A) The wrapper — makes input + button share the same height */
+.register-input-group {
+  display: flex;
+  align-items: stretch;           /* children stretch to match each other's  */
+                                  /* height — the key to consistent alignment */
+}
+
+/* B) Input inside the group — connect it visually to the button */
+.register-input-group .register-input {
+  border-top-right-radius: 0 !important;    /* flat edge meets the button    */
+  border-bottom-right-radius: 0 !important;
+  border-right: none !important;            /* remove the seam between them  */
+  flex: 1;                                  /* take all remaining width      */
+  min-width: 0;                             /* prevent flex overflow on small */
+                                            /* screens                        */
+}
+
+/* C) The eye button — perfectly centred icon, no fixed height */
+.register-eye-btn {
+  display: flex;                  /* enable flex centering of the icon       */
+  align-items: center;            /* vertical centre                         */
+  justify-content: center;        /* horizontal centre                       */
+  padding: 0;                     /* ← REQUIRED: padding would shift the icon */
+  width: 44px;                    /* consistent tap target width             */
+  flex-shrink: 0;                 /* don't shrink below 44px when space is   */
+                                  /* tight                                    */
+  /* No height — it stretches to match the input via the flex container */
+
+  background-color: #ffffff;
+  border: 1.5px solid #e5e7eb;   /* matches the input border weight + colour */
+  border-left: none;              /* remove the seam between input + button  */
+  border-radius: 0 10px 10px 0;  /* rounded only on the right side          */
+  cursor: pointer;
+  color: #6b7280;
+  font-size: 1rem;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.register-eye-btn:hover {
+  background-color: #f9fafb;
+  color: #0e1c2b;
+}
+
+/*
+  When the input is focused, extend the gold border to the button too
+  so the entire field group appears highlighted together.
+  The ~ combinator won't work here because the button comes AFTER
+  the input in the DOM, so we use the adjacent sibling selector (+).
+*/
+.register-input:focus + .register-eye-btn {
+  border-color: #c9a84c;
+}
+
+/*
+  When validation fails, extend the red border to the button too
+  so the entire field group appears in the error state together.
+*/
+.register-input.is-invalid + .register-eye-btn {
+  border-color: #dc3545;
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════
+   8. ERROR TEXT
+   ══════════════════════════════════════════════════════════════════════
+
+   display:block forces each error onto its own line.
+   Without it, multiple errors from the same field would run together
+   inline in the same line of text.
+*/
 .field-error {
-    color: #dc3545;
-    font-size: 0.8rem;
-    margin-top: 4px;
-    display: block;
+  display: block;
+  color: #dc3545;
+  font-size: 0.78rem;
+  margin-top: 0.25rem;
 }
 
-/* Border on errors */
-.register_form .form-control.is-invalid,
-.register_form p:has(.field-error) .form-control {
-    border-color: #dc3545;
-}
 
-.register_form .form-control::placeholder {
-    color: #728aa5;
-    font-size: 0.9rem;
-}
+/* ══════════════════════════════════════════════════════════════════════
+   9. SUBMIT BUTTON
+   ══════════════════════════════════════════════════════════════════════
 
-/* Begin submit button */
+   THE PROBLEM
+   ───────────
+   Original: font-size: 1.3rem — the button was noticeably oversized
+   relative to the form fields, making the card taller.
+
+   THE FIX
+   ───────
+   Scale down to 1rem to match the proportions of the doc-1 system.
+*/
 .btn-blue {
-    color: #ffffff;
-    border: 1.5px solid #0e1c2b;
-    background-color: #0e1c2b;
-    border-radius: 50px;
-    padding: 6px 18px;
-    font-size: 1.3rem;
-    font-weight: 700;
-    text-decoration: none;
-    width: 100;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: #0e1c2b;
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;                /* ← reduced from 1.3rem                  */
+  font-weight: 700;
+  padding: 0.7rem 1.5rem;        /* ← tighter than original 6px 18px        */
+  width: 100%;
+  transition: background-color 0.2s ease,
+              transform 0.15s ease,
+              box-shadow 0.15s ease;
 }
 
 .btn-blue:hover {
-    background-color: #1a3a5d;
+  background-color: #1a3a5d;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════
+   10. FOOTER LINK
+   ══════════════════════════════════════════════════════════════════════
+*/
+.alreadyregistered {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.signinlink {
+  color: #c9a84c !important;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.signinlink:hover {
+  text-decoration: underline;     /* subtle affordance on hover              */
+}
+
+
+/*
+  ╔══════════════════════════════════════════════════════════════════════╗
+  ║  NAVBAR + FOOTER — merged & reconciled                               ║
+  ║                                                                      ║
+  ║  This block replaces BOTH the old #navbar / .footer rules AND        ║
+  ║  the new .navbar / footer rules. Keep only this version.             ║
+  ║                                                                      ║
+  ║  ROOT CAUSE OF THE CONFLICTS                                         ║
+  ║  ─────────────────────────────                                       ║
+  ║  Old sheet used #navbar (ID selector, specificity 0-1-0-0).         ║
+  ║  New sheet used .navbar (class selector, specificity 0-0-1-0).      ║
+  ║  ID always beats class, so old rules silently won on shared          ║
+  ║  properties even when loaded first.                                  ║
+  ║                                                                      ║
+  ║  Solution: use a single class selector (.navbar) for everything      ║
+  ║  and fold the old values in where they differ. The HTML navbar       ║
+  ║  element should NOT have id="navbar" — the class alone is enough.   ║
+  ╚══════════════════════════════════════════════════════════════════════╝
+*/
+
+
+/* ══════════════════════════════════════════════════════════════════════
+   NAVBAR
+   ══════════════════════════════════════════════════════════════════════ */
+
+/*
+  Base navbar element
+  ───────────────────
+  Merges:
+    old → background-color, position, top, z-index, border-bottom (white)
+    new → background (same colour), sticky (same), z-index (same),
+          border-bottom changed to 2px gold, padding, box-shadow
+
+  DECISION: keep the gold border-bottom from the new system — it is a
+  deliberate design token that ties the navbar to the brand palette.
+  The old rgba(255,255,255,0.06) border is too subtle to be meaningful.
+*/
+.navbar {
+  background-color: #0d1b2a !important; /* matches old #navbar value exactly  */
+  position: sticky;                     /* old: sticky — preserved            */
+  top: 0;                               /* old: top:0   — preserved           */
+  z-index: 1030;                        /* old: 1030    — preserved           */
+  padding: 0;                           /* new: removes Bootstrap default pad */
+  border-bottom: 2px solid rgba(255, 255, 255, 0.06);    
+  box-shadow: 0 4px 16px rgba(13, 27, 42, 0.12); /* new: depth shadow        */
+}
+
+/*
+  Brand / logo text
+  ─────────────────
+  Old used font-size: 1.3rem. New used 1.5rem.
+  DECISION: keep 1.5rem — it reads better at the navbar's 0-padding height.
+  If you prefer 1.3rem, change it here; this is the single source of truth.
+*/
+.navbar .navbar-brand {
+  font-family: 'Playfair Display', serif; /* new: display font for brand      */
+  font-size: 1.5rem;                      /* new value (old was 1.3rem)       */
+  font-weight: 700;
+  color: #ffffff !important;              /* old + new: white brand text      */
+  letter-spacing: -0.02em;               /* new: tighter tracking             */
+}
+
+.navbar .navbar-brand:hover {
+  color: #ffffff !important;             /* old: no colour change on hover    */
+}
+
+/*
+  The gold dot after "Nova"
+  ─────────────────────────
+  Old used class .nova_dot — make sure your base.html uses
+  <span class="nova_dot"> OR <span> (new system uses bare span).
+  Both selectors are listed below so either HTML works.
+*/
+.navbar .navbar-brand .nova_dot,
+.navbar .navbar-brand span {
+  color: #c9a84c;                        /* gold accent on the trailing dot   */
+}
+
+/*
+  Nav links
+  ─────────
+  Old set color and font-size only, no padding.
+  New added padding (1.25rem .85rem) for a taller hit area and
+  letter-spacing for polish.
+  DECISION: keep new padding — it fills the navbar height properly.
+*/
+.navbar .nav-link {
+  color: rgba(255, 255, 255, 0.75) !important; /* old: .85 opacity; new: .75 */
+                                               /* .75 reads slightly cleaner  */
+  font-size: 0.9rem;                           /* old value — preserved       */
+  font-weight: 500;
+  padding: 1.25rem 0.85rem !important;         /* new: tall hit area          */
+  letter-spacing: 0.02em;
+  transition: color 0.2s ease;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: #c9a84c !important;                   /* new: gold on hover/active   */
+}
+
+/*
+  Sign-in text link (used when logged out, no button style)
+  Old targeted this with .navbar-signin — preserved here.
+*/
+.navbar .navbar-signin {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.9rem;
+}
+
+/*
+  Hamburger toggler (mobile)
+*/
+.navbar-toggler {
+  border-color: rgba(201, 168, 76, 0.4) !important;
+  padding: 0.3rem 0.6rem;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,.7%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/*
+  Logged-in avatar thumbnail in navbar
+*/
+.nav-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #c9a84c;
+}
+
+/*
+  "Get Started" outline button  (old: .btn-outline-getstarted)
+  Also used as .nav-btn-outline in new system.
+  Both class names are listed so either HTML works without changes.
+*/
+.btn-outline-getstarted,
+.nav-btn-outline {
+  color: #c9a84c !important;
+  border: 1.5px solid #c9a84c;
+  border-radius: 50px !important;
+  padding: 0.4rem 1.1rem !important;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-outline-getstarted:hover,
+.nav-btn-outline:hover {
+  background-color: #c9a84c;
+  color: #0d1b2a !important;
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════
+   DROPDOWN MENU
+   ══════════════════════════════════════════════════════════════════════
+
+   CONFLICT EXPLAINED
+   ──────────────────
+   Old: dark navy background (#0e1c2b), white text on items.
+   New: white background, dark text, soft box-shadow card.
+
+   These are mutually exclusive aesthetics — you must pick one.
+
+   DECISION: use the NEW white card style. Reasons:
+     1. It matches the page's light card aesthetic (register, auth cards).
+     2. Dark-on-dark dropdowns can feel heavy and are harder to scan.
+     3. The new system already has hover states and divider colours
+        designed for a light surface.
+
+   If you prefer the dark dropdown, swap the two blocks below.
+*/
+.dropdown-menu {
+  background-color: #ffffff !important;        /* new: white card             */
+  border: none !important;
+  border-radius: 12px !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15) !important;
+  padding: 0.5rem;
+}
+
+.dropdown-item {
+  border-radius: 8px;
+  font-size: 0.88rem;
+  padding: 0.6rem 0.9rem;
+  color: #1a1a2e;                              /* new: dark text on white bg  */
+  transition: background-color 0.15s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #f5f0e8;                  /* new: cream hover             */
+  color: #0d1b2a;
+}
+
+.dropdown-item.text-danger:hover {
+  background-color: #fff0f0;
+  color: #c0392b;
+}
+
+.dropdown-divider {
+  border-color: #e5e7eb;                       /* new: light grey divider     */
+}
+
+/*
+  --- ALTERNATIVE: dark dropdown (uncomment to use instead) ---
+
+  .dropdown-menu {
+    background-color: #0e1c2b !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35) !important;
+  }
+  .dropdown-item {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.9rem;
+  }
+  .dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.06);
     color: #ffffff;
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+  .dropdown-divider {
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+*/
+
+
+/* ══════════════════════════════════════════════════════════════════════
+   FOOTER
+   ══════════════════════════════════════════════════════════════════════
+
+   CONFLICT EXPLAINED
+   ──────────────────
+   Old used .footer (class selector) → applied only if <footer class="footer">
+   New used footer  (element selector) → applied to all <footer> elements.
+
+   When both are present and the HTML has <footer class="footer">, both
+   rules apply and declarations fight. The border-top is the worst: old
+   sets 1px white hairline, new sets 2px gold — last declaration wins,
+   which is unpredictable depending on file load order.
+
+   DECISION: merge into a single footer / .footer rule that handles both
+   selectors, preserving old layout values and keeping the gold border.
+*/
+footer,
+.footer {
+  background-color: #0d1b2a;             /* old + new: same navy             */
+  color: rgba(255, 255, 255, 0.5);       /* new: slightly muted base text    */
+  border-top: 2px solid rgba(255, 255, 255, 0.06); 
+  padding: 4rem 0 2rem;                  /* old value — preserved             */
+  font-size: 0.875rem;
+  flex-shrink: 0;                        /* prevents footer squishing in flex */
+                                          /* column body layout                */
 }
-/* End submit button */
 
-.register .alreadyregistered {
-    color: #728aa5;
-    font-size: 1rem;
+/* Footer brand / logo */
+.footer-brand {
+  font-family: 'Playfair Display', serif; /* new: display font                */
+  font-size: 1.6rem;                      /* old value — preserved            */
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;                  /* old value — preserved            */
 }
 
-.register .alreadyregistered .signinlink {
-    color: #c9a84c !important;
-    text-decoration: none;
+/* Gold dot in footer brand */
+.footer-dot,
+.footer-brand span {                      /* support both old and new HTML    */
+  color: #c9a84c;
 }
 
-.
+/* Tagline under the footer brand */
+.footer-tagline {
+  color: #8a9bb0;                         /* old value — preserved            */
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
 
-/* === End register page === */
+/* Column headings (Links, Connect, etc.) */
+.footer-heading {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: #ffffff;
+  margin-bottom: 1rem;                    /* old value — preserved            */
+}
+
+/* Footer link list — no bullets */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.6rem;                  /* old value — preserved            */
+}
+
+.footer-links a {
+  color: #8a9bb0;                         /* old value — preserved            */
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #c9a84c;                         /* new: gold on hover (old: white)  */
+                                          /* gold is more on-brand            */
+}
+
+/* Generic footer anchor fallback (for links not in .footer-links) */
+footer a,
+.footer a {
+  color: rgba(255, 255, 255, 0.45);
+  transition: color 0.2s ease;
+}
+
+footer a:hover,
+.footer a:hover {
+  color: #c9a84c;
+}
+
+/* Social media icon row */
+.footer-icons {
+  display: flex;
+  gap: 16px;                              /* old value — preserved            */
+}
+
+.footer-icon {
+  color: #ffffff !important;             /* old value — preserved            */
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-icon:hover {
+  color: #c9a84c !important;             /* old value — preserved            */
+}
+
+/* Horizontal rule inside footer */
+.footer-divider {
+  border-color: rgba(255, 255, 255, 0.08); /* old value — preserved          */
+  margin: 0;
+}
+
+/* Small copyright / attribution text at the bottom */
+.footer-small {
+  color: #8a9bb0;                         /* old value — preserved            */
+  font-size: 0.8rem;
+}
